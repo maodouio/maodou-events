@@ -5,6 +5,9 @@ export default ({ Meteor, Collections }) => {
     return Events.find({});
   });
 
+  Meteor.publish('events.configs.user', function () {
+    return Packages.find({ name: 'events' });
+  });
   Meteor.publish('events.configs', function () {
     return Packages.find({ name: 'events' });
   });
