@@ -18,7 +18,7 @@ export default class EventAdd extends React.Component {
       <div className="row">
         <div className="col-sm-12">
           <h1>新建活动</h1>
-          <form onSubmit={this.props.addEvent}>
+          <form onSubmit={(e) => this.props.dispatch(this.props.addEvent(e))}>
             <div className="form-group">
               <label>活动名称</label>
               <input className="form-control" type="text" placeholder="title" name="title" />

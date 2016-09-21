@@ -5,12 +5,7 @@ import Events from '../components/events';
 
 const userEvents = {
   deleteEvent({ context }, id, event) {
-    event.preventDefault();
-    context.Meteor.call('events.delete', id, (err) => {
-      if (err) {
-        alert(err.message);
-      }
-    });
+
   }
 };
 

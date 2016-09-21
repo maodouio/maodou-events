@@ -1,16 +1,8 @@
 import { useDeps } from 'react-simple-di';
-import { compose, withHandlers, withTracker, withRedux, withLifecycle, composeAll } from 'react-komposer-plus';
+import { compose, withHandlers, withTracker, withRedux, composeAll } from 'react-komposer-plus';
 import { browserHistory } from 'react-router'
 
 import Post from '../components/event';
-
-const lifecycle=({
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.event) {
-      document.title = nextProps.event.title;
-    }
-  }
-});
 
 const initData = ({ context, params }, onData) => {
   const { Meteor, swal } = context;
@@ -26,6 +18,7 @@ const initData = ({ context, params }, onData) => {
         browserHistory.push('/events');
       }
     } else {
+      document.title = event.title;
       onData(null, { event });
     }
   });
@@ -37,7 +30,6 @@ const depsToProps = (context, actions) => ({
 });
 
 export default composeAll(
-  withLifecycle(lifecycle),
   compose(initData),
   useDeps(depsToProps)
 )(Post);

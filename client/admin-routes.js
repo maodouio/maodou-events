@@ -1,4 +1,4 @@
-import EventsAdmin from './containers/admin';
+import EventsAdmin from './components/admin';
 import EventsList from './containers/events';
 import EventsAdd from './containers/admin/eventsAdd';
 
