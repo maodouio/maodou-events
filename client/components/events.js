@@ -27,6 +27,9 @@ export default (props) => {
                       {/*</div>*/}
                     {/*</div>*/}
                     <div className="panel-body">
+                      <div className="event-img">
+                        <img src={event.coverUrl} alt="event picture"/>
+                      </div>
                       <Link to={`/events/${event._id}`}>
                         <h4>{event.title}</h4>
                         {/*<p>{event.plainDesc}</p>*/}
